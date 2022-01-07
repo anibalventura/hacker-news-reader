@@ -8,17 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		C561F99B2788EA6C001E8567 /* HackerNewsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C561F99A2788EA6C001E8567 /* HackerNewsApp.swift */; };
-		C561F99D2788EA6C001E8567 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C561F99C2788EA6C001E8567 /* ContentView.swift */; };
+		C561F99D2788EA6C001E8567 /* NewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C561F99C2788EA6C001E8567 /* NewsView.swift */; };
 		C561F99F2788EA6D001E8567 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C561F99E2788EA6D001E8567 /* Assets.xcassets */; };
 		C561F9A22788EA6D001E8567 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C561F9A12788EA6D001E8567 /* Preview Assets.xcassets */; };
+		C561F9AD2788F5FD001E8567 /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C561F9AC2788F5FD001E8567 /* PostModel.swift */; };
+		C561F9AF2788F7AB001E8567 /* NewsDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C561F9AE2788F7AB001E8567 /* NewsDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C561F9972788EA6C001E8567 /* Hacker News.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hacker News.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C561F99A2788EA6C001E8567 /* HackerNewsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HackerNewsApp.swift; sourceTree = "<group>"; };
-		C561F99C2788EA6C001E8567 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		C561F99C2788EA6C001E8567 /* NewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsView.swift; sourceTree = "<group>"; };
 		C561F99E2788EA6D001E8567 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C561F9A12788EA6D001E8567 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C561F9AC2788F5FD001E8567 /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
+		C561F9AE2788F7AB001E8567 /* NewsDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +55,9 @@
 		C561F9992788EA6C001E8567 /* HackerNews */ = {
 			isa = PBXGroup;
 			children = (
+				C561F9AA2788F5DB001E8567 /* Models */,
+				C561F9AB2788F5E0001E8567 /* Views */,
 				C561F99A2788EA6C001E8567 /* HackerNewsApp.swift */,
-				C561F99C2788EA6C001E8567 /* ContentView.swift */,
 				C561F99E2788EA6D001E8567 /* Assets.xcassets */,
 				C561F9A02788EA6D001E8567 /* Preview Content */,
 			);
@@ -65,6 +70,23 @@
 				C561F9A12788EA6D001E8567 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		C561F9AA2788F5DB001E8567 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C561F9AC2788F5FD001E8567 /* PostModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C561F9AB2788F5E0001E8567 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C561F99C2788EA6C001E8567 /* NewsView.swift */,
+				C561F9AE2788F7AB001E8567 /* NewsDetailView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,7 +184,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C561F99D2788EA6C001E8567 /* ContentView.swift in Sources */,
+				C561F99D2788EA6C001E8567 /* NewsView.swift in Sources */,
+				C561F9AD2788F5FD001E8567 /* PostModel.swift in Sources */,
+				C561F9AF2788F7AB001E8567 /* NewsDetailView.swift in Sources */,
 				C561F99B2788EA6C001E8567 /* HackerNewsApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
