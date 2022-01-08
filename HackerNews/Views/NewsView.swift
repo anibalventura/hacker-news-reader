@@ -8,20 +8,23 @@
 import SwiftUI
 
 struct NewsView: View {
-    private let posts: [Post] = [
-        Post(id: 1, title: "Hello"),
-        Post(id: 2, title: "Amazing"),
-        Post(id: 3, title: "World!")
-    ]
+    @ObservedObject private var newsViewModel: NewsViewModel = NewsViewModel()
+    @State private var showAlert: Bool = false
 
     var body: some View {
         NavigationView {
-            List(posts) { post in
+            List(newsViewModel.posts) { post in
                 NavigationLink(destination: NewsDetailView(newsURL: post.title)) {
-                    Text(post.title)
+                    NewsItem(post: post)
                 }
             }
             .navigationTitle("Hacker News")
+            .refreshable {
+                newsViewModel.fetchNews()
+            }
+        }
+        .onAppear {
+            newsViewModel.fetchNews()
         }
     }
 }

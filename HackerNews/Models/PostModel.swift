@@ -8,6 +8,26 @@
 import Foundation
 
 struct Post: Identifiable, Codable {
-    let id: Int
+    var id: String {
+        objectID
+    }
     let title: String
+    let url: String?
+    let author: String
+    let points: Int
+    let numComents: Int
+    let objectID: String
+
+    enum CodingKeys: String, CodingKey {
+        case title
+        case url
+        case author
+        case points
+        case numComents = "num_comments"
+        case objectID
+    }
+}
+
+struct PostResults: Codable {
+    let hits: [Post]
 }
