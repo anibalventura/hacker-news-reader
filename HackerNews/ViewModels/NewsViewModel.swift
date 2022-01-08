@@ -6,25 +6,23 @@
 //
 
 import Foundation
+import Alamofire
 
 class NewsViewModel: ObservableObject {
-    @Published private(set) var lastStories: [Story] = [Story]()
-    @Published private(set) var matchStories: [Story] = [Story]()
+    @Published private(set) var lastStories: [Story]?
+    @Published private(set) var matchStories: [Story]?
 
-    private let networkManager: NetworkManager = NetworkManager()
     private let hackerNewsBaseURL: String = "http://hn.algolia.com/api/v1"
 
     func fetchLastStories() {
         let url = "\(hackerNewsBaseURL)/search_by_date?tags=story"
 
-        networkManager.fetchData(from: url) { (result: Result<Story.Results, Error>) in
-            switch result {
-            case .success(let model):
-                DispatchQueue.main.async {
-                    self.lastStories = model.hits
-                }
+        AF.request(url).responseDecodable(of: Story.Results.self) { response in
+            switch response.result {
+            case .success(let data):
+                self.lastStories = data.hits
             case .failure(let error):
-                print(error)
+                debugPrint(error)
             }
         }
     }
@@ -32,14 +30,12 @@ class NewsViewModel: ObservableObject {
     func fetchMatchStories(for query: String) {
         let url = "\(hackerNewsBaseURL)/search?query=\(query)"
 
-        networkManager.fetchData(from: url) { (result: Result<Story.Results, Error>) in
-            switch result {
-            case .success(let model):
-                DispatchQueue.main.async {
-                    self.matchStories = model.hits
-                }
+        AF.request(url).responseDecodable(of: Story.Results.self) { response in
+            switch response.result {
+            case .success(let data):
+                self.matchStories = data.hits
             case .failure(let error):
-                print(error)
+                debugPrint(error)
             }
         }
     }
