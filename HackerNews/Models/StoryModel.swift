@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Post: Identifiable, Codable {
+struct Story: Identifiable, Codable {
     var id: String {
         objectID
     }
@@ -28,6 +28,6 @@ struct Post: Identifiable, Codable {
     }
 
     struct Results: Codable {
-        let hits: [Post]
+        let hits: [Story]
     }
 }

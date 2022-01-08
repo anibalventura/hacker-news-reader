@@ -8,19 +8,19 @@
 import SwiftUI
 
 struct NewsItem: View {
-    let post: Post
+    let story: Story
 
     var body: some View {
         HStack {
-            Text("\(post.points)")
+            Text("\(story.points)")
 
             VStack(alignment: .leading) {
-                Text(post.title)
+                Text(story.title)
                     .font(.headline)
 
                 HStack {
-                    Text("Author: \(post.author)")
-                    Text("Comments: \(post.numComents)")
+                    Text("Author: \(story.author)")
+                    Text("Comments: \(story.numComents)")
                 }
                 .font(.subheadline)
             }

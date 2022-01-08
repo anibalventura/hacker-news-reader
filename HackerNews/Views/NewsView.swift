@@ -9,21 +9,32 @@ import SwiftUI
 
 struct NewsView: View {
     @ObservedObject private var newsViewModel: NewsViewModel = NewsViewModel()
+    @State private var search: String = ""
+
+    private var stories: [Story] {
+        if search.isEmpty {
+            return newsViewModel.lastStories
+        } else {
+            newsViewModel.fetchMatchStories(for: search)
+            return newsViewModel.matchStories
+        }
+    }
 
     var body: some View {
         NavigationView {
-            List(newsViewModel.posts) { post in
-                NavigationLink(destination: NewsDetailView(post.url)) {
-                    NewsItem(post: post)
+            List(stories) { story in
+                NavigationLink(destination: NewsDetailView(story.url)) {
+                    NewsItem(story: story)
                 }
             }
             .navigationTitle("Hacker News")
+            .searchable(text: $search, placement: .navigationBarDrawer(displayMode: .always))
             .refreshable {
-                newsViewModel.fetchNews()
+                newsViewModel.fetchLastStories()
             }
         }
         .onAppear {
-            newsViewModel.fetchNews()
+            newsViewModel.fetchLastStories()
         }
     }
 }
