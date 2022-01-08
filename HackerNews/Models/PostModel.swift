@@ -26,8 +26,8 @@ struct Post: Identifiable, Codable {
         case numComents = "num_comments"
         case objectID
     }
-}
 
-struct PostResults: Codable {
-    let hits: [Post]
+    struct Results: Codable {
+        let hits: [Post]
+    }
 }

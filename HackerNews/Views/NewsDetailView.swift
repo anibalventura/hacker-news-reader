@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct NewsDetailView: View {
-    private let url: String
+    private let url: String?
 
-    init(_ url: String) {
+    init(_ url: String?) {
         self.url = url
     }
 

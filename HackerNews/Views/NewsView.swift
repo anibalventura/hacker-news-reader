@@ -9,12 +9,11 @@ import SwiftUI
 
 struct NewsView: View {
     @ObservedObject private var newsViewModel: NewsViewModel = NewsViewModel()
-    @State private var showAlert: Bool = false
 
     var body: some View {
         NavigationView {
             List(newsViewModel.posts) { post in
-                NavigationLink(destination: NewsDetailView(post.url!)) {
+                NavigationLink(destination: NewsDetailView(post.url)) {
                     NewsItem(post: post)
                 }
             }
