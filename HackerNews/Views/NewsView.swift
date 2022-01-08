@@ -14,28 +14,17 @@ struct NewsView: View {
     var body: some View {
         NavigationView {
             List(newsViewModel.posts) { post in
-                NavigationLink(destination: NewsDetailView(newsURL: post.title)) {
+                NavigationLink(destination: NewsDetailView(post.url!)) {
                     NewsItem(post: post)
                 }
             }
             .navigationTitle("Hacker News")
             .refreshable {
-                fetchNews()
-            }
-            .alert("Cannot fetch news! \nTry again later.", isPresented: $showAlert) {
-                Button("OK", role: .cancel) { }
+                newsViewModel.fetchNews()
             }
         }
         .onAppear {
-            fetchNews()
-        }
-    }
-
-    private func fetchNews() {
-        newsViewModel.fetchNews()
-
-        if newsViewModel.posts.isEmpty {
-            self.showAlert = true
+            newsViewModel.fetchNews()
         }
     }
 }

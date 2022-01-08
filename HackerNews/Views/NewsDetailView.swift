@@ -8,15 +8,19 @@
 import SwiftUI
 
 struct NewsDetailView: View {
-    let newsURL: String
+    private let url: String
+
+    init(_ url: String) {
+        self.url = url
+    }
 
     var body: some View {
-        Text(newsURL)
+        Text(url)
     }
 }
 
 struct NewsDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        NewsDetailView(newsURL: "Hello World!")
+        NewsDetailView("https://www.google.com")
     }
 }
