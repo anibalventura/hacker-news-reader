@@ -20,11 +20,22 @@ struct NewsView: View {
             }
             .navigationTitle("Hacker News")
             .refreshable {
-                newsViewModel.fetchNews()
+                fetchNews()
+            }
+            .alert("Cannot fetch news! \nTry again later.", isPresented: $showAlert) {
+                Button("OK", role: .cancel) { }
             }
         }
         .onAppear {
-            newsViewModel.fetchNews()
+            fetchNews()
+        }
+    }
+
+    private func fetchNews() {
+        newsViewModel.fetchNews()
+
+        if newsViewModel.posts.isEmpty {
+            self.showAlert = true
         }
     }
 }
