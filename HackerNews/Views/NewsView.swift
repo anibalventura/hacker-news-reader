@@ -29,14 +29,14 @@ struct NewsView: View {
                         NewsItem(story: story)
                     }
                 }
-                .navigationTitle("Hacker News")
+                .navigationTitle(Consts.appName)
                 .searchable(text: $search, placement: .navigationBarDrawer(displayMode: .always))
                 .refreshable {
                     newsViewModel.fetchLastStories()
                 }
             } else {
-                Text("Error! Cannot load news.")
-                    .navigationTitle("Hacker News")
+                Text(Localizable.Error.loadingNews)
+                    .navigationTitle(Consts.appName)
             }
         }
         .onAppear {

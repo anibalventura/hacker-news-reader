@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  HackerNews
+
+  Created by Anibal Ventura on 9/1/22.
+  
+*/
+
+// Error when news cannot load.
+"loading-news-error" = "Error! Cannot load news.";
