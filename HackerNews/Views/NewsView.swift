@@ -25,8 +25,10 @@ struct NewsView: View {
         NavigationView {
             if stories != nil {
                 List(stories!) { story in
-                    NavigationLink(destination: NewsDetailView(story.url)) {
-                        NewsItem(story: story)
+                    if story.url != nil { // Show only stories with pages to read.
+                        NavigationLink(destination: NewsDetailView(story.url)) {
+                            NewsItem(story: story)
+                        }
                     }
                 }
                 .navigationTitle(Consts.appName)
