@@ -10,7 +10,6 @@ import SwiftUI
 struct NewsView: View {
     @ObservedObject private var newsViewModel: NewsViewModel = NewsViewModel()
     @State private var search: String = ""
-    @State private var showAlert: Bool = false
 
     private var stories: [Story]? {
         if search.isEmpty && newsViewModel.lastStories != nil {
